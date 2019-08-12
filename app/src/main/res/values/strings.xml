@@ -1,7 +1,24 @@
 <resources>
-    <string name="app_name">Job4j Exam</string>
-    <string name="domain_prompt">Выберите область</string>
+    <string name="app_name" >Job4j Exam</string>
+    <string name="hello">Привет, Niyaz!</string>
+    <string name="but_text1">Кнопка</string>
+    <string name="but_text2">Кнопка</string>
+    <string name="but_text3">Кнопка</string>
+    <string name="but_text4">Кнопка</string>
+    <string name="back">Назад</string>
+    <string name="next">Вперед</string>
+
+    <string name="city">Город</string>
+    <string name="object">Имя объекта</string>
+    <string name="street_Home">Улица и дом</string>
     <string name="exp_date">Дата проведения испытания</string>
+    <string name="client">ФИО заказчика</string>
+    <string name="temperature">Температура воздуха</string>
+    <string name="humidity">Влажность воздуха</string>
+    <string name="pressure">Атмосферное давление</string>
+    <string name="report_number">Номер отчета</string>
+
+    <string name="domain_prompt">Выберите область</string>
     <string-array name="domain_arrays">
         <item>Выберите область</item>
         <item>Московская</item>

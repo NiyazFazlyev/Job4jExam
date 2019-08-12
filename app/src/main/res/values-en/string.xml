@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello, Niyaz!</string>
+    <string name="but_text1">RadioButton</string>
+    <string name="but_text2">RadioButton</string>
+    <string name="but_text3">RadioButton</string>
+    <string name="but_text4">RadioButton</string>
+    <string name="back">Back</string>
+    <string name="next">Next</string>
+
+    <string name="city">City</string>
+    <string name="object">Object name</string>
+    <string name="street_Home">Street and home</string>
+    <string name="exp_date">Data of test</string>
+    <string name="client">The name of the customer</string>
+    <string name="temperature">Air temperature</string>
+    <string name="humidity">Air humidity</string>
+    <string name="pressure">Atmospheric pressure</string>
+    <string name="report_number">Report number</string>
+
+    <string name="domain_prompt">Selected area</string>
+    <string-array name="domain_arrays">
+        <item>Selected area</item>
+        <item>Moscow</item>
+        <item>SPb</item>
+    </string-array>
+</resources>
