@@ -79,31 +79,28 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         this.fillForm();
         RadioGroup variants = findViewById(R.id.variants);
-        variants.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                Button next = findViewById(R.id.next);
-                next.setEnabled(position != questions.size() - 1);
-            }
-        });
+        variants.setOnCheckedChangeListener(this::changeRadioGroup);
         Button next = findViewById(R.id.next);
-        next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showAnswer();
-                position++;
-                fillForm();
-            }
-        });
+        next.setOnClickListener(this::nextBtn);
         Button previous = findViewById(R.id.previous);
-        previous.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                position--;
-                fillForm();
-            }
-        });
+        previous.setOnClickListener(this::previousBtn);
 //        Log.d(TAG, "onCreate");
+    }
+
+    private void nextBtn(View view){
+        showAnswer();
+        position++;
+        fillForm();
+    }
+
+    private void previousBtn(View view){
+        position--;
+        fillForm();
+    }
+
+    private void changeRadioGroup(RadioGroup radioGroup, int i){
+        Button next = findViewById(R.id.next);
+        next.setEnabled(position != questions.size() - 1);
     }
 
     @Override
