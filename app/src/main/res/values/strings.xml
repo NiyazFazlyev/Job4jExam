@@ -6,7 +6,8 @@
     <string name="but_text3">Кнопка</string>
     <string name="but_text4">Кнопка</string>
     <string name="back">Назад</string>
-    <string name="next">Вперед</string>
+    <string name="next">Дальше</string>
+    <string name="hint">Подсказка</string>
 
     <string name="city">Город</string>
     <string name="object">Имя объекта</string>

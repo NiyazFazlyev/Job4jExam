@@ -5,8 +5,9 @@
     <string name="but_text2">RadioButton</string>
     <string name="but_text3">RadioButton</string>
     <string name="but_text4">RadioButton</string>
-    <string name="back">Back</string>
+    <string name="back">Previous</string>
     <string name="next">Next</string>
+    <string name="hint">Hint</string>
 
     <string name="city">City</string>
     <string name="object">Object name</string>
