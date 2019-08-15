@@ -7,15 +7,17 @@
 
     <TextView
         android:id="@+id/question"
+        style="@style/CustomText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/CustomText"
         android:text="@string/hello" />
 
     <RadioGroup
         android:id="@+id/variants"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:clickable="true"
+        android:onClick="changeRadioGroup"
         android:orientation="vertical">
 
         <RadioButton
@@ -58,7 +60,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="previousBtn"
             android:text="@string/back" />
+
 
         <Button
             android:id="@+id/hint"
@@ -66,6 +70,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="hintBtn"
             android:text="@string/hint" />
 
         <Button
@@ -74,6 +79,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="nextBtn"
             android:text="@string/next" />
     </LinearLayout>
 

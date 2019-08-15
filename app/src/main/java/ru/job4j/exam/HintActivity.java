@@ -22,7 +22,6 @@ public class HintActivity extends AppCompatActivity {
     }
 
 
-
     @Override
     protected void onCreate(@Nullable Bundle state) {
         super.onCreate(state);
@@ -37,7 +36,7 @@ public class HintActivity extends AppCompatActivity {
         text.append(this.hints.get(possion));
     }
 
-    private void backBtn(View view){
+    private void backBtn(View view) {
         onBackPressed();
     }
 

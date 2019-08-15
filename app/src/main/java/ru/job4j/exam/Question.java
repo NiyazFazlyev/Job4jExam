@@ -5,6 +5,7 @@ import android.os.Parcelable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Question implements Parcelable {
     private int id;
@@ -12,12 +13,12 @@ public class Question implements Parcelable {
     private List<Option> options;
     private int answer;
 
-        public static final Creator<Question> CREATOR = new Creator<Question>() {
+    public static final Creator<Question> CREATOR = new Creator<Question>() {
         @Override
         public Question createFromParcel(Parcel source) {
             int id = source.readInt();
             String text = source.readString();
-            List<Option>  options = new ArrayList<>();//Нужно будет поправить, пока не знаю как
+            List<Option> options = new ArrayList<>();//Нужно будет поправить, пока не знаю как
             int answer = source.readInt();
             return new Question(id, text, options, answer);
         }
@@ -52,9 +53,30 @@ public class Question implements Parcelable {
     }
 
     @Override
-    public String toString(){
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Question question = (Question) o;
+        return id == question.id &&
+                answer == question.answer &&
+                text.equals(question.text) &&
+                options.equals(question.options);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + text.hashCode();
+        result = 31 * result + options.hashCode();
+        result = 31 * result + answer;
+        return result;
+    }
+
+    @Override
+    public String toString() {
         return String.format("%s. %s %s Correct answer: %s", id, text, "\n", answer);
     }
+
     @Override
     public int describeContents() {
         return 0;

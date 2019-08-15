@@ -1,7 +1,6 @@
 package ru.job4j.exam;
 
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;

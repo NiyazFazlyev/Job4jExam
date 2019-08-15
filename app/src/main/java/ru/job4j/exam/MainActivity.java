@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -22,11 +21,10 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
-    int count = 0;
+    private int count = 0;
     private int position = 0;
+    private List<Integer> userAnswers = new ArrayList<>();
     public static final String HINT_FOR = "hint_for";
-    List<Integer> userAnswers = new ArrayList<>();
-    List<Integer> correctAnswers = new ArrayList<>();
 
     private final List<Question> questions = Arrays.asList(
             new Question(
@@ -85,38 +83,32 @@ public class MainActivity extends AppCompatActivity {
         this.fillForm();
         RadioGroup variants = findViewById(R.id.variants);
         variants.setOnCheckedChangeListener(this::changeRadioGroup);
-        Button next = findViewById(R.id.next);
-        next.setOnClickListener(this::nextBtn);
-        Button previous = findViewById(R.id.previous);
-        previous.setOnClickListener(this::previousBtn);
-        Button hint = findViewById(R.id.hint);
-        hint.setOnClickListener(this::hintBtn);
         //        Log.d(TAG, "onCreate");
     }
 
-    private void nextBtn(View view){
+    public void nextBtn(View view) {
         //showAnswer();
         RadioGroup variants = findViewById(R.id.variants);
         int id = variants.getCheckedRadioButtonId();
         userAnswers.add(position, id);
         position++;
-        if (position == questions.size()){
+        if (position == questions.size()) {
             Intent intent = new Intent(MainActivity.this, ResultActivity.class);
             intent.putIntegerArrayListExtra("userAnswers", (ArrayList<Integer>) userAnswers);
             intent.putParcelableArrayListExtra("questions", new ArrayList<>(questions));
             startActivity(intent);
-        }else{
+        } else {
             fillForm();
         }
 
     }
 
-    private void previousBtn(View view){
+    public void previousBtn(View view) {
         position--;
         fillForm();
     }
 
-    private void  hintBtn(View view){
+    public void hintBtn(View view) {
 //        startActivity(new Intent(MainActivity.this, HintActivity.class));
         Intent intent = new Intent(MainActivity.this, HintActivity.class);
         intent.putExtra(HINT_FOR, position);
@@ -124,15 +116,16 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void changeRadioGroup(RadioGroup radioGroup, int i){
+    public void changeRadioGroup(RadioGroup group, int checkedId) {
         Button next = findViewById(R.id.next);
         next.setEnabled(true);
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
+//        count++;
         outState.putInt("count", count);
+        super.onSaveInstanceState(outState);
         Log.d(TAG, "onSaveInstanceState");
     }
 
@@ -146,7 +139,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onRestoreInstanceState(@Nullable Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         count = savedInstanceState.getInt("count");
+        count++;
         Log.d(TAG, "onRestoreInstanceState");
+        Log.d(TAG, String.valueOf(count));
     }
 
     @Override
