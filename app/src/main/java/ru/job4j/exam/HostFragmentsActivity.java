@@ -48,9 +48,10 @@ public class HostFragmentsActivity extends AppCompatActivity implements FirstFra
             firstFragment = new FirstFragment();
         }
         firstFragment.setArguments(bundle);
-        fm.beginTransaction()
-                .replace(R.id.fragment_container, firstFragment)
-                .addToBackStack(null)
-                .commit();
+        fm.popBackStack();
+//        fm.beginTransaction()
+//                .replace(R.id.fragment_container, firstFragment)
+//                .addToBackStack(null)
+//                .commit();
     }
 }

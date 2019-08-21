@@ -175,6 +175,4 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, String.valueOf(count));
 
     }
-
-
 }
