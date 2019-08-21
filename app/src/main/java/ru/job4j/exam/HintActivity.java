@@ -30,10 +30,10 @@ public class HintActivity extends AppCompatActivity {
         back.setOnClickListener(this::backBtn);
         TextView text = findViewById(R.id.hint);
         ArrayList<Question> questions = getIntent().getParcelableArrayListExtra("questions");
-        int possion = getIntent().getIntExtra(MainActivity.HINT_FOR, 0);
-        text.setText(questions.get(possion).getText());
+        int position = getIntent().getIntExtra(MainActivity.HINT_FOR, 0);
+        text.setText(questions.get(position).getText());
         text.append("\n");
-        text.append(this.hints.get(possion));
+        text.append(this.hints.get(position));
     }
 
     private void backBtn(View view) {

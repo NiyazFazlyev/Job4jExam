@@ -125,6 +125,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onSaveInstanceState(Bundle outState) {
 //        count++;
         outState.putInt("count", count);
+        outState.putInt("position", position);
+        outState.putIntegerArrayList("userAnswers", (ArrayList<Integer>) userAnswers);
         super.onSaveInstanceState(outState);
         Log.d(TAG, "onSaveInstanceState");
     }
@@ -139,6 +141,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onRestoreInstanceState(@Nullable Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         count = savedInstanceState.getInt("count");
+        position = savedInstanceState.getInt("position");
+        userAnswers = savedInstanceState.getIntegerArrayList("userAnswers");
         count++;
         Log.d(TAG, "onRestoreInstanceState");
         Log.d(TAG, String.valueOf(count));
