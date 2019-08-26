@@ -109,11 +109,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void hintBtn(View view) {
-//        startActivity(new Intent(MainActivity.this, HintActivity.class));
         Intent intent = new Intent(MainActivity.this, HintActivity.class);
         intent.putExtra(HINT_FOR, position);
         intent.putParcelableArrayListExtra("questions", new ArrayList<>(questions));
         startActivity(intent);
+    }
+    public void testsBtn(View view) {
+        startActivity(new Intent(MainActivity.this, ExamActivity.class));
     }
 
     public void changeRadioGroup(RadioGroup group, int checkedId) {
