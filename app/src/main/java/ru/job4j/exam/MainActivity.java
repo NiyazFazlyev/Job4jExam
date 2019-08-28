@@ -2,6 +2,7 @@ package ru.job4j.exam;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -19,7 +20,7 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ConfirmHintDialogFragment.ConfirmHintDialogListener {
     private static final String TAG = "MainActivity";
     private int count = 0;
     private int position = 0;
@@ -109,11 +110,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void hintBtn(View view) {
+        DialogFragment dialog = new ConfirmHintDialogFragment();
+        dialog.show(getSupportFragmentManager(), "dialog_tag");
+    }
+
+    @Override
+    public void onPositiveDialogClick(DialogFragment dialog) {
         Intent intent = new Intent(MainActivity.this, HintActivity.class);
         intent.putExtra(HINT_FOR, position);
         intent.putParcelableArrayListExtra("questions", new ArrayList<>(questions));
         startActivity(intent);
     }
+
+    @Override
+
+    public void onNegativeDialogClick(DialogFragment dialog) {
+        Toast.makeText(this, "Молодец!!!", Toast.LENGTH_SHORT).show();
+
+    }
+
     public void testsBtn(View view) {
         startActivity(new Intent(MainActivity.this, ExamActivity.class));
     }
@@ -172,13 +187,5 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         Log.d(TAG, "onDestroy");
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        count++;
-        Log.d(TAG, String.valueOf(count));
-
     }
 }
