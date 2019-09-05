@@ -1,4 +1,4 @@
-package ru.job4j.exam;
+package ru.job4j.exam.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -6,9 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+
+import ru.job4j.exam.R;
 
 public class SecondFragment extends Fragment {
     private Button previousFragment;

@@ -1,12 +1,12 @@
-package ru.job4j.exam;
+package ru.job4j.exam.fragments;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
+
+import ru.job4j.exam.R;
 
 public class HostFragmentsActivity extends AppCompatActivity implements FirstFragment.OnNextButtonClickListener, SecondFragment.OnBackButtonClickListener{
     private FragmentManager fm;

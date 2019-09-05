@@ -1,4 +1,4 @@
-package ru.job4j.exam;
+package ru.job4j.exam.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+
+import ru.job4j.exam.R;
 //import android.support.v4.app.Fragment;
 
 public class FirstFragment extends Fragment {
